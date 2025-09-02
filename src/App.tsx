@@ -123,22 +123,22 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#efeae2] flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+    <div className="min-h-screen bg-[#efeae2] flex items-center justify-center p-0 sm:p-4">
+      <div className="w-full h-screen sm:h-auto sm:max-w-2xl bg-white rounded-none sm:rounded-lg shadow-lg overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="bg-[#075e54] text-white p-4 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gray-300 flex-shrink-0 overflow-hidden">
+        <div className="bg-[#075e54] text-white p-3 sm:p-4 flex items-center gap-2 sm:gap-3 sticky top-0 z-10">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-300 flex-shrink-0 overflow-hidden">
             <img src="https://ui-avatars.com/api/?name=Dikshit+Darji&background=random" alt="Profile" className="w-full h-full object-cover" />
           </div>
           <div className="flex-1">
-            <h1 className="text-xl font-semibold">Dikshit Darji</h1>
-            <p className="text-sm opacity-90">online</p>
+            <h1 className="text-lg sm:text-xl font-semibold">Dikshit Darji</h1>
+            <p className="text-xs sm:text-sm opacity-90">online</p>
           </div>
         </div>
 
         {/* Chat Area */}
         <div 
-          className="flex-1 h-[600px] overflow-y-auto p-4 bg-[#e5ddd5] relative space-y-4"
+          className="flex-1 h-[calc(100vh-120px)] sm:h-[600px] overflow-y-auto p-2 sm:p-4 bg-[#e5ddd5] relative space-y-3 sm:space-y-4"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
             backgroundSize: '300px 300px'
@@ -147,10 +147,10 @@ function App() {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
+              className={`flex ${message.isUser ? 'justify-end' : 'justify-start'} w-full`}
             >
               <div
-                className={`max-w-[70%] p-3 rounded-lg relative ${message.isUser ? 'bg-[#dcf8c6] text-black' : 'bg-white text-black'} ${message.isUser ? 'message-tail-right' : 'message-tail-left'}`}
+                className={`max-w-[85%] sm:max-w-[70%] p-2.5 sm:p-3 rounded-lg relative break-words ${message.isUser ? 'bg-[#dcf8c6] text-black' : 'bg-white text-black'} ${message.isUser ? 'message-tail-right' : 'message-tail-left'}`}
               >
                 {message.isTyping ? (
                   <div className="flex gap-1 items-center p-2">
@@ -219,14 +219,14 @@ function App() {
         </div>
 
         {/* Input Area */}
-        <div className="bg-[#f0f0f0] p-3 flex items-center gap-2">
+        <div className="bg-[#f0f0f0] p-2 sm:p-3 flex items-center gap-2 sticky bottom-0">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Type a message"
-            className="flex-1 px-4 py-2 rounded-full border-none focus:outline-none focus:ring-2 focus:ring-[#075e54] bg-white"
+            className="flex-1 px-3 sm:px-4 py-2 rounded-full border-none focus:outline-none focus:ring-2 focus:ring-[#075e54] bg-white text-sm sm:text-base"
           />
           <button
             onClick={handleSend}
