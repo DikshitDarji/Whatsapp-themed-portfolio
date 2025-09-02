@@ -11,6 +11,20 @@ type Message = {
 };
 
 const KEYWORDS = ['skills', 'resume', 'education', 'address', 'contact', 'projects', 'clear'];
+
+const findClosestCommand = (input: string): string | null => {
+  const normalizedInput = input.toLowerCase().trim();
+  // First check for exact matches
+  if (KEYWORDS.includes(normalizedInput)) return normalizedInput;
+  // Then check for partial matches
+  const partialMatch = KEYWORDS.find(keyword => normalizedInput.includes(keyword));
+  if (partialMatch) return partialMatch;
+  // Finally check for close matches (e.g., typos)
+  const closeMatch = KEYWORDS.find(keyword => 
+    normalizedInput.length > 2 && 
+    (keyword.includes(normalizedInput) || normalizedInput.includes(keyword)));
+  return closeMatch || null;
+};
 const SKILLS = ['HTML', 'CSS', 'JavaScript', 'React', 'Node', 'Express', 'MongoDB', 'C', 'C++'];
 
 function App() {
@@ -66,7 +80,7 @@ function App() {
     if (!input.trim()) return;
 
     const userMessage = { text: input, isUser: true, timestamp: getCurrentTime(), status: 'read' as const };
-    const lowerInput = input.toLowerCase();
+    const lowerInput = input.toLowerCase().trim();
     
     setMessages(prev => [...prev, userMessage]);
     setInput('');
@@ -110,9 +124,16 @@ function App() {
         { text: "Type 'more' to see what I can help you with!", timestamp: getCurrentTime() }
       ]);
     } else {
-      await simulateTyping({
-        text: "I didn't understand that. Type 'more' to see available commands."
-      });
+      const closestCommand = findClosestCommand(lowerInput);
+      if (closestCommand) {
+        await simulateTyping({
+          text: `Did you mean '${closestCommand}'? Please type the exact command to proceed.\n\nAvailable commands:\n${KEYWORDS.map(k => `• ${k}`).join('\n')}`
+        });
+      } else {
+        await simulateTyping({
+          text: `I didn't understand that command. Here are the available commands:\n${KEYWORDS.map(k => `• ${k}`).join('\n')}\n\nType 'more' for detailed information.`
+        });
+      }
     }
   };
 
