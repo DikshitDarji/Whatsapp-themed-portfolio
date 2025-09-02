@@ -9,14 +9,14 @@
 .message-tail-right::after {
   content: '';
   position: absolute;
-  right: -8px;
+  right: -6px;
   top: 0;
   width: 0;
   height: 0;
-  border-left: 10px solid #dcf8c6;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #dcf8c6;
-  border-bottom: 10px solid transparent;
+  border-left: 8px solid #dcf8c6;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #dcf8c6;
+  border-bottom: 8px solid transparent;
   transform: rotate(-45deg);
 }
 
@@ -27,13 +27,30 @@
 .message-tail-left::after {
   content: '';
   position: absolute;
-  left: -8px;
+  left: -6px;
   top: 0;
   width: 0;
   height: 0;
-  border-right: 10px solid white;
-  border-left: 10px solid transparent;
-  border-top: 10px solid white;
-  border-bottom: 10px solid transparent;
+  border-right: 8px solid white;
+  border-left: 8px solid transparent;
+  border-top: 8px solid white;
+  border-bottom: 8px solid transparent;
   transform: rotate(45deg);
+}
+
+/* Smooth scrolling for chat container */
+.overflow-y-auto {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.overflow-y-auto::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.overflow-y-auto {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -11,12 +11,12 @@ type Message = {
 };
 
 const KEYWORDS = ['skills', 'resume', 'education', 'address', 'contact', 'projects', 'clear'];
-const SKILLS = ['HTML', 'CSS', 'JavaScript', 'React', 'Node', 'Express', 'MongoDB', 'C', 'C++', 'Docker'];
+const SKILLS = ['HTML', 'CSS', 'JavaScript', 'React', 'Node', 'Express', 'MongoDB', 'C', 'C++'];
 
 function App() {
   const [messages, setMessages] = useState<Message[]>([
     { text: "Hey there! 👋 I'm Dikshit Darji", timestamp: getCurrentTime() },
-    { text: "I'm a Full Stack Developer passionate about creating robust and scalable web applications.", timestamp: getCurrentTime() },
+    { text: "I'm a Frontend Developer passionate about creating robust and scalable web applications.", timestamp: getCurrentTime() },
     { text: "Type 'more' to see what I can help you with!", timestamp: getCurrentTime() }
   ]);
   const [input, setInput] = useState('');
@@ -43,8 +43,8 @@ function App() {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'DikshitDarji_Resume.pdf';
+    link.href = '/DikshitDarji_CS_Resume.pdf';
+    link.download = 'DikshitDarji_CS_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -97,7 +97,7 @@ function App() {
       });
     } else if (lowerInput === 'contact') {
       await simulateTyping({
-        text: "📱 Contact Information:\n\n• LinkedIn: https://www.linkedin.com/in/dikshit-darji-0a0989249/\n• Phone: +91 9828418225\n• Email: darjidikshit30@gmail.com"
+        text: "📱 Contact Information:\n\n• LinkedIn: https://www.linkedin.com/in/iamdikshitdarji/\n• Phone: +91 9828418225\n• Email: darjidikshit30@gmail.com"
       });
     } else if (lowerInput === 'projects') {
       await simulateTyping({
@@ -124,13 +124,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#efeae2] flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="bg-[#075e54] text-white p-4 flex items-start gap-3">
+        <div className="bg-[#075e54] text-white p-4 flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-gray-300 flex-shrink-0 overflow-hidden">
             <img src="https://ui-avatars.com/api/?name=Dikshit+Darji&background=random" alt="Profile" className="w-full h-full object-cover" />
           </div>
-          <div>
+          <div className="flex-1">
             <h1 className="text-xl font-semibold">Dikshit Darji</h1>
             <p className="text-sm opacity-90">online</p>
           </div>
@@ -138,7 +138,7 @@ function App() {
 
         {/* Chat Area */}
         <div 
-          className="h-[600px] overflow-y-auto p-4 bg-[#e5ddd5] relative"
+          className="flex-1 h-[600px] overflow-y-auto p-4 bg-[#e5ddd5] relative space-y-4"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
             backgroundSize: '300px 300px'
@@ -147,7 +147,7 @@ function App() {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`mb-4 flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
+              className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
             >
               <div
                 className={`max-w-[70%] p-3 rounded-lg relative ${message.isUser ? 'bg-[#dcf8c6] text-black' : 'bg-white text-black'} ${message.isUser ? 'message-tail-right' : 'message-tail-left'}`}
@@ -160,27 +160,56 @@ function App() {
                   </div>
                 ) : (
                   <>
-                    <pre className="whitespace-pre-wrap font-sans">{message.text}</pre>
+                    <pre className="whitespace-pre-wrap font-sans text-sm">{message.text.split('\n').map((line, i) => (
+                        <React.Fragment key={i}>
+                          {line.split(' ').map((word, j) => {
+                            if (word.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+                              return (
+                                <React.Fragment key={j}>
+                                  <a
+                                    href={`mailto:${word}`}
+                                    className="text-blue-600 hover:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    {word}
+                                  </a>{' '}
+                                </React.Fragment>
+                              );
+                            } else if (word.startsWith('http://') || word.startsWith('https://')) {
+                              return (
+                                <React.Fragment key={j}>
+                                  <a
+                                    href={word}
+                                    className="text-blue-600 hover:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    {word}
+                                  </a>{' '}
+                                </React.Fragment>
+                              );
+                            }
+                            return <React.Fragment key={j}>{word} </React.Fragment>;
+                          })}
+                          {i < message.text.split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                      ))}</pre>
                     {message.downloadButton && (
                       <button
                         onClick={handleDownloadResume}
-                        className="mt-2 flex items-center gap-2 bg-[#075e54] text-white px-4 py-2 rounded-lg hover:bg-[#054c44] transition-colors"
+                        className="mt-2 flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
                       >
-                        <Download size={20} />
+                        <Download size={16} />
                         Download Resume
                       </button>
                     )}
-                    {message.timestamp && (
-                      <div className="absolute -bottom-5 right-0 text-xs text-gray-500 flex items-center gap-1">
-                        {message.timestamp}
-                        {message.isUser && message.status && (
-                          <div className="ml-1 flex">
-                            <Check size={12} className={message.status === 'read' ? 'text-blue-500' : 'text-gray-500'} />
-                            <Check size={12} className={message.status === 'read' ? 'text-blue-500' : 'text-gray-500'} style={{ marginLeft: -4 }} />
-                          </div>
-                        )}
-                      </div>
-                    )}
+                    <div className="text-[10px] text-gray-500 mt-1 flex items-center gap-1 justify-end">
+                      {message.timestamp}
+                      {message.isUser && message.status === 'read' && (
+                        <Check className="w-4 h-4 text-blue-500" />
+                      )}
+                    </div>
                   </>
                 )}
               </div>
@@ -190,18 +219,19 @@ function App() {
         </div>
 
         {/* Input Area */}
-        <div className="p-4 bg-[#f0f0f0] flex items-center gap-2">
+        <div className="bg-[#f0f0f0] p-3 flex items-center gap-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Type a message..."
-            className="flex-1 p-2 rounded-full border border-gray-300 focus:outline-none focus:border-[#075e54]"
+            placeholder="Type a message"
+            className="flex-1 px-4 py-2 rounded-full border-none focus:outline-none focus:ring-2 focus:ring-[#075e54] bg-white"
           />
           <button
-            onClick={() => handleSend()}
-            className="p-2 rounded-full bg-[#075e54] text-white hover:bg-[#054c44] transition-colors"
+            onClick={handleSend}
+            disabled={!input.trim()}
+            className="p-2 rounded-full bg-[#075e54] text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#054c44] transition-colors"
           >
             <Send size={20} />
           </button>
